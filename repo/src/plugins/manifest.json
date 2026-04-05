@@ -1,0 +1,28 @@
+{
+  "plugins": [
+    {
+      "id": "local-json-adapter",
+      "type": "adapters",
+      "module": "adapters/localJsonAdapter",
+      "enabled": true
+    },
+    {
+      "id": "json-parser",
+      "type": "parsers",
+      "module": "parsers/jsonParser",
+      "enabled": true
+    },
+    {
+      "id": "basic-cleaner",
+      "type": "cleaners",
+      "module": "cleaners/basicCleaner",
+      "enabled": true
+    },
+    {
+      "id": "indexeddb-storage-backend",
+      "type": "storage_backends",
+      "module": "storage/indexedDbStorage",
+      "enabled": true
+    }
+  ]
+}

@@ -1,0 +1,199 @@
+:root {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #18202a;
+  background: linear-gradient(135deg, #f5f7fa 0%, #dfe7ef 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.shell {
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 2rem 1rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.shell__header h1 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.shell__header p {
+  margin: 0.4rem 0 1rem;
+}
+
+.panel {
+  background: #ffffff;
+  border: 1px solid #d5dce3;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.panel h2 {
+  margin-top: 0;
+}
+
+.fulfillment-filters,
+.fulfillment-presets,
+.fulfillment-toolbar,
+.drawer__grid {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.fulfillment-filters {
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  margin-bottom: 0.75rem;
+}
+
+.fulfillment-presets,
+.fulfillment-toolbar {
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  margin-bottom: 0.75rem;
+}
+
+.fulfillment-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.fulfillment-table-wrap {
+  overflow-x: auto;
+}
+
+.fulfillment-table th,
+.fulfillment-table td {
+  border: 1px solid #d5dce3;
+  padding: 0.45rem;
+  text-align: left;
+}
+
+.fulfillment-pagination {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.drawer {
+  margin-top: 1rem;
+  border: 1px solid #d5dce3;
+  border-radius: 10px;
+  padding: 0.75rem;
+  background: #f9fbfd;
+}
+
+.drawer__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.drawer__grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.drawer__grid h4 {
+  margin-bottom: 0.5rem;
+}
+
+.error {
+  color: #a10f2b;
+}
+
+.barcode-controls,
+.barcode-manual {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  margin-bottom: 0.75rem;
+}
+
+.barcode-video {
+  width: 100%;
+  max-height: 220px;
+  border: 1px solid #d5dce3;
+  border-radius: 8px;
+  background: #101820;
+  margin-bottom: 0.75rem;
+}
+
+.admin-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.admin-grid input,
+.admin-grid select,
+.admin-grid button {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.45rem;
+}
+
+.admin-grid ul {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.75rem;
+}
+
+.dashboard-card {
+  border: 1px solid #d5dce3;
+  border-radius: 10px;
+  padding: 0.75rem;
+  background: #f7fafc;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.dashboard-card strong {
+  font-size: 1.25rem;
+}
+
+.dashboard-actions,
+.layout-controls > div,
+.section-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 720px) {
+  .shell {
+    padding: 1rem 0.6rem;
+  }
+
+  .panel {
+    padding: 0.75rem;
+  }
+
+  .fulfillment-table th,
+  .fulfillment-table td {
+    white-space: nowrap;
+  }
+
+  .drawer__header {
+    gap: 0.5rem;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
