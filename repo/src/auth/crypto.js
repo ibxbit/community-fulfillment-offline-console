@@ -1,3 +1,5 @@
+import { getWebCrypto } from "../utils/webCrypto";
+
 const PBKDF2_HASH = "SHA-256";
 const PBKDF2_ITERATIONS = 120000;
 const PBKDF2_KEY_LENGTH = 256;
@@ -23,7 +25,7 @@ function fromBase64(base64) {
 }
 
 export function createSalt(byteLength = 16) {
-  const salt = crypto.getRandomValues(new Uint8Array(byteLength));
+  const salt = getWebCrypto().getRandomValues(new Uint8Array(byteLength));
   return toBase64(salt);
 }
 
@@ -32,8 +34,9 @@ export async function hashPassword(
   saltBase64,
   iterations = PBKDF2_ITERATIONS,
 ) {
+  const { subtle } = getWebCrypto();
   const encoder = new TextEncoder();
-  const passwordKey = await crypto.subtle.importKey(
+  const passwordKey = await subtle.importKey(
     "raw",
     encoder.encode(password),
     { name: "PBKDF2" },
@@ -42,7 +45,7 @@ export async function hashPassword(
   );
 
   const saltBytes = fromBase64(saltBase64);
-  const derived = await crypto.subtle.deriveBits(
+  const derived = await subtle.deriveBits(
     {
       name: "PBKDF2",
       salt: saltBytes,

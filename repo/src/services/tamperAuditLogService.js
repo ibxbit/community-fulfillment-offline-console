@@ -1,5 +1,6 @@
 import { createId } from "../utils/id";
 import { maskSensitiveFields } from "../auth/masking";
+import { getWebCrypto } from "../utils/webCrypto";
 
 function now() {
   return new Date().toISOString();
@@ -22,7 +23,7 @@ function canonicalStringify(value) {
 
 async function sha256Hex(input) {
   const bytes = new TextEncoder().encode(input);
-  const digest = await crypto.subtle.digest("SHA-256", bytes);
+  const digest = await getWebCrypto().subtle.digest("SHA-256", bytes);
   const hashArray = Array.from(new Uint8Array(digest));
   return hashArray.map((value) => value.toString(16).padStart(2, "0")).join("");
 }
