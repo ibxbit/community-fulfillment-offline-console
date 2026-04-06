@@ -151,3 +151,13 @@ repo/
 
 Docker assets are provided for convenience only (`Dockerfile`, `docker-compose.yml`).
 Delivery acceptance is validated using the local Node/npm flow above.
+
+## Advanced Flows & Manual Verification
+
+This project now includes static and automated test coverage for advanced plugin extension, admin configuration, message center, error/validation/edge states, and UI state transitions. See:
+
+- `unit_tests/advanced_flows.unit.test.js`
+- `unit_tests/error_and_edge_states.unit.test.js`
+- `unit_tests/ui_state_transitions.unit.test.js`
+
+Some runtime behaviors (e.g., browser camera access, IndexedDB persistence, plugin execution in real browser, UI rendering) still require manual verification in a real browser environment. All critical flows are covered by static code and tests, but final runtime/UX should be confirmed manually as part of acceptance.
