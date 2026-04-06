@@ -7,8 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test:unit": "vitest run unit_tests",
-    "test:api": "vitest run API_tests"
+    "test:unit": "npx vitest run unit_tests",
+    "test:api": "npx vitest run API_tests"
   },
   "dependencies": {
     "react": "^18.3.1",
