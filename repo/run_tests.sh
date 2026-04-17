@@ -14,6 +14,7 @@ echo "[3/4] Running HTTP integration tests"
 npm run test:http
 
 echo "[4/4] Running browser E2E tests"
+npx playwright install --with-deps chromium
 npm run test:e2e
 
 echo "All tests passed"
