@@ -8,13 +8,19 @@
     "build": "vite build",
     "preview": "vite preview",
     "test:unit": "npx vitest run unit_tests",
-    "test:api": "npx vitest run API_tests"
+    "test:api": "npx vitest run API_tests",
+    "test:http": "npx vitest run http_tests",
+    "test:e2e": "npx playwright test --config=e2e_tests/playwright.config.js"
   },
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
     "@vitejs/plugin-react": "^4.3.2",
     "fake-indexeddb": "^6.0.1",
     "jsdom": "^24.1.3",
