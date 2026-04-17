@@ -18,7 +18,14 @@ const IMPORT_SCHEMAS = {
     },
   },
   shipments: {
-    required: ["itemSku", "lot", "warehouseLocation", "requester", "date"],
+    required: [
+      "itemSku",
+      "lot",
+      "warehouseLocation",
+      "requester",
+      "date",
+      "documentStatus",
+    ],
     types: {
       itemSku: "string",
       lot: "string",

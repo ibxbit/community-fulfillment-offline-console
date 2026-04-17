@@ -36,7 +36,7 @@ describe("Advanced plugin/admin/message center flows", () => {
     const gotSettlement = await services.adminConfig.getSettlementCycle();
     expect(gotSettlement.data.frequency).toBe("weekly");
     const attribution = await services.adminConfig.getAttributionRules();
-    expect(attribution.overlapStrategy).toBeDefined();
+    expect(attribution.data.overlapStrategy).toBeDefined();
   });
 
   it("handles message center: can upsert template, set/get subscription, queue and dedupe messages", async () => {
@@ -51,7 +51,7 @@ describe("Advanced plugin/admin/message center flows", () => {
     expect(queue.error).toBeFalsy();
     // Dedupe: same message within 60s
     const queue2 = await services.messaging.queueMessage({ recipientUserId: userId, templateId: "t1", variables: { name: "A" }, title: "Hello", body: "Hi A", priority: "normal" });
-    expect(queue2.error).toBeTruthy();
-    expect(queue2.error.message).toContain("deduplicated");
+    expect(queue2.data.skipped).toBe(true);
+    expect(queue2.data.reason).toBe("duplicate_within_60s");
   });
 });

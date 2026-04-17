@@ -685,6 +685,7 @@ export function createAppServices(options = {}) {
     authApi: authApiService,
     dashboard: dashboardService,
     integrationValidation: integrationValidationService,
+    plugins,
     router,
     async init() {
       await db.init();
